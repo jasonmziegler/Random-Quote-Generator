@@ -91,6 +91,8 @@ function printQuote() {
 
 //I thought I could use logic inside of the template string interpolation, but the console had an error on the word if so I looked up this on stack overflow: 
 //https://stackoverflow.com/questions/44488434/inserting-if-statement-inside-es6-template-literal and it recommended to use ternary operator
+// may need to scrap this line of reasoning as it still displays commas "--Marcus Aurelius,," which apear to be coming from the css
+// likely will need to construct the HTML piece by piece checking each parameter with isDefined
   container.innerHTML = 
       `<div id="quote-box" class="quote-box">
         <p class="quote">${quoteObject.quote}</p>
