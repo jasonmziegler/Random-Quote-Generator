@@ -44,8 +44,11 @@ citation: The Problem of Increasing Human Energy,
 ***/
 
 function getRandomQuote(arr) {
+  // need to get a max number
  let maxNumber = arr.length;
+ // random number will be the index of the array which can range from 0 to maxNumber-1
  let randomNumber = Math.floor((Math.random() * maxNumber))
+ // return the quote object
  return arr[randomNumber];
 }
 
