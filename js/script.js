@@ -56,7 +56,20 @@ function getRandomQuote(arr) {
  * `printQuote` function
 ***/
 function printQuote(quoteObject) {
+{ 
+  // locate location in HTML to update
 
+  // create a template string and interpolate quote attributes into the html
+  // need to have if conditionals so that certain elements are only displayed if present
+  /* <div class="container">
+      <div id="quote-box" class="quote-box">
+        <p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
+        <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
+      </div>
+    </div> */
+
+    // set inner HTML equal to template string
+  }
 }
 
 
