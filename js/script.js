@@ -34,7 +34,7 @@ const quotes = [
 {quote: "Everyone should consider his body as a priceless gift from one whom he loves above all, a marvelous work of art, of indescribable beauty, and mystery beyond human conception, and so delicate that  a word, a breath, a look, nay, a thought may injure it.",
 source: "Nikola Tesla",
 year: 1900,
-citation: The Problem of Increasing Human Energy,
+citation: 'The Problem of Increasing Human Energy',
 }
 ]
 
@@ -55,20 +55,22 @@ function getRandomQuote(arr) {
 /***
  * `printQuote` function
 ***/
-function printQuote(quoteObject) {
+function printQuote() {
 { 
+  // get Random Quote
+  let quoteObject = getRandomQuote(quotes);
   // locate location in HTML to update
+  let container = document.querySelector('.container');
 
   // create a template string and interpolate quote attributes into the html
+ 
   // need to have if conditionals so that certain elements are only displayed if present
-  /* <div class="container">
-      <div id="quote-box" class="quote-box">
-        <p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
-        <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
-      </div>
-    </div> */
-
-    // set inner HTML equal to template string
+// set inner HTML equal to template string
+  container.innerHTML = 
+      `<div id="quote-box" class="quote-box">
+        <p class="quote">${quoteObject.quote}</p>
+        <p class="source">${quoteObject.source}<span class="citation">${quoteObject.citation}</span><span class="year">${quoteObject.year}</span></p>
+      </div>`; 
   }
 }
 
