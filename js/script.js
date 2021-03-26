@@ -69,6 +69,10 @@ function getRandomQuote(arr) {
 ***/
 function printQuote() {
 { 
+  function isDefined(objectParameter) {
+    if (objectParameter) return true;
+    return false;
+  }
   // get Random Quote
   /**
  * @type {Object}
@@ -84,10 +88,13 @@ function printQuote() {
  
   // need to have if conditionals so that certain elements are only displayed if present
 // set inner HTML equal to template string
+
+//I thought I could use logic inside of the template string interpolation, but the console had an error on the word if so I looked up this on stack overflow: 
+//https://stackoverflow.com/questions/44488434/inserting-if-statement-inside-es6-template-literal and it recommended to use ternary operator
   container.innerHTML = 
       `<div id="quote-box" class="quote-box">
         <p class="quote">${quoteObject.quote}</p>
-        <p class="source">${quoteObject.source}<span class="citation">${quoteObject.citation}</span><span class="year">${quoteObject.year}</span></p>
+        <p class="source">${isDefined(quoteObject.source) ? quoteObject.source:''}<span class="citation">${isDefined(quoteObject.citation) ? quoteObject.citation:''}</span><span class="year">${isDefined(quoteObject.year) ? quoteObject.year:''}</span></p>
       </div>`; 
   }
 }
