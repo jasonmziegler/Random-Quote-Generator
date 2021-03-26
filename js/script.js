@@ -41,12 +41,24 @@ citation: 'The Problem of Increasing Human Energy',
 
 /***
  * `getRandomQuote` function
+ * @param {Array} arr - An array param
+ * @return {Object} An Object Param
+ * 
+ * @example
+ * 
+ *  getRandomQuotes(quotes);
 ***/
 
 function getRandomQuote(arr) {
   // need to get a max number
+  /**
+ * @type {number} - maxNumber
+ */
  let maxNumber = arr.length;
  // random number will be the index of the array which can range from 0 to maxNumber-1
+ /**
+ * @type {number} - randomNumber
+ */
  let randomNumber = Math.floor((Math.random() * maxNumber))
  // return the quote object
  return arr[randomNumber];
@@ -58,8 +70,14 @@ function getRandomQuote(arr) {
 function printQuote() {
 { 
   // get Random Quote
+  /**
+ * @type {Object}
+ */
   let quoteObject = getRandomQuote(quotes);
   // locate location in HTML to update
+  /**
+ * @type {Object}
+ */
   let container = document.querySelector('.container');
 
   // create a template string and interpolate quote attributes into the html
