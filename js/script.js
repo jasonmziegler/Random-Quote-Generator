@@ -60,6 +60,7 @@ function getRandomQuote(arr) {
  * @type {number} - randomNumber
  */
  let randomNumber = Math.floor((Math.random() * maxNumber))
+ console.log('Random Number: ', randomNumber);
  // return the quote object
  return arr[randomNumber];
 }
@@ -68,7 +69,7 @@ function getRandomQuote(arr) {
  * `printQuote` function
 ***/
 function printQuote() {
-{ 
+
   function isDefined(objectParameter) {
     if (objectParameter) return true;
     return false;
@@ -93,12 +94,36 @@ function printQuote() {
 //https://stackoverflow.com/questions/44488434/inserting-if-statement-inside-es6-template-literal and it recommended to use ternary operator
 // may need to scrap this line of reasoning as it still displays commas "--Marcus Aurelius,," which apear to be coming from the css
 // likely will need to construct the HTML piece by piece checking each parameter with isDefined
-  container.innerHTML = 
-      `<div id="quote-box" class="quote-box">
-        <p class="quote">${quoteObject.quote}</p>
-        <p class="source">${isDefined(quoteObject.source) ? quoteObject.source:''}<span class="citation">${isDefined(quoteObject.citation) ? quoteObject.citation:''}</span><span class="year">${isDefined(quoteObject.year) ? quoteObject.year:''}</span></p>
-      </div>`; 
+  // container.innerHTML = 
+  //     `<div id="quote-box" class="quote-box">
+  //       <p class="quote">${quoteObject.quote}</p>
+  //       <p class="source">${isDefined(quoteObject.source) ? quoteObject.source:''}<span class="citation">${isDefined(quoteObject.citation) ? quoteObject.citation:''}</span><span class="year">${isDefined(quoteObject.year) ? quoteObject.year:''}</span></p>
+  //     </div>`; 
+  // }
+  let html = '<div id="quote-box" class="quote-box">';
+  
+  if (isDefined(quoteObject.quote)) {
+    html += `<p class="quote">${quoteObject.quote}</p>`;
   }
+
+  html += '<p class="source">';
+  
+  if (isDefined(quoteObject.source)) {
+    html += quoteObject.source;
+  } else {
+    html += 'Unkown';
+  }
+  
+  if (isDefined(quoteObject.citation)) {
+    html += `<span class="citation">${quoteObject.citation}</span>`
+  }
+  
+  if (isDefined(quoteObject.year)) {
+    html += `<span class="year">${quoteObject.year}</span>`;
+  }
+  html += '</p></div>';
+
+  container.innerHTML = html;
 }
 
 
